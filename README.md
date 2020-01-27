@@ -33,6 +33,12 @@ code program:
 - 14: light blue
 - 15: light gray
 
+## Common registers
+
+`$d012`: raster counter
+`$d020`: border color
+`$d021`: background color 1
+
 ## Resources
 
 [Commodore 64 assembly coding on the command line](https://csl.name/post/c64-coding/)
