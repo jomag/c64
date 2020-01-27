@@ -1,8 +1,8 @@
 
 AS=kickass
 
-hello.prg: hello.s
-	$(AS) hello.s
+hello.prg: hello.asm rasterbar.asm
+	$(AS) hello.asm
 
 run: hello.prg
 	x64 hello.prg
