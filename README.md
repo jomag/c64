@@ -38,6 +38,8 @@ code program:
 `$d012`: raster counter
 `$d020`: border color
 `$d021`: background color 1
+`$d019`: interrupt status register
+`$d01a`: interrupt control register
 
 ## Resources
 
@@ -46,3 +48,11 @@ code program:
 [An Introduction to Programming C-64 Demos](http://www.antimon.org/code/Linus/) by Linus Åkerlund
 
 [The MOS 6567/6569 video controller (VIC-II) and its application in the Commodore 64](http://www.zimmers.net/cbmpics/cbm/c64/vic-ii.txt?utm_source=share&utm_medium=ios_app&utm_name=iossmf)
+
+[Making stable raster routines (C64 and VIC-20)](http://www.antimon.org/dl/c64/code/stable.txt) by Marko Makela (Marko.Makela@HUT.FI)
+
+[Stable Raster Routine](https://codebase64.org/doku.php?id=base:stable_raster_routine)
+
+The Classic [Commodore 64 Programmers Reference Guide](https://www.commodore.ca/commodore-manuals/commodore-64-programmers-reference-guide/)
+
+[A quite complete C64 memory map](http://sta.c64.org/cbm64mem.html)
