@@ -1,7 +1,7 @@
 .const PATH_LENGTH = 256
 .const HEIGHT = 64
 .const BAR_HEIGHT = 8
-.const TOP = 80
+.const TOP = 100
 .const BACKGROUND = BLACK
 
 barCount:
@@ -36,11 +36,17 @@ prepareRasterBars:
         sta buffer,x
         bne !-
 
+        // lda #RED
+        // sta buffer+4
+        // lda #GREEN
+        // sta buffer+6
+        // rts
+
         // Increment frame index
-        lda rasterBarsPathIndex
-        adc #1
-        and #PATH_LENGTH-1
-        sta rasterBarsPathIndex
+        // lda rasterBarsPathIndex
+        // adc #1
+        // and #PATH_LENGTH-1
+        // sta rasterBarsPathIndex
 
         // Iterate all bars to be displayed
         lda #0
@@ -89,14 +95,15 @@ renderRasterBars:
         ldy rasterBarsTop
         ldx #0
 
-lineLoop:
-        lda buffer,x
+        // Load accumulator with first color
+        lda buffer
 
         // Wait until raster is at start of the next line
-!:      cpy $d012
-        bne !-
+//!:      cpy $d012
+//        bne !-
 
-        // Set border color to current color
+lineLoop:
+        // Set border and background color to current color
         sta $d020
         sta $d021
 
@@ -108,6 +115,12 @@ lineLoop:
         sta $d021
         rts
 
-!:      inx             // Increment buffer offset
+        // Wait until next line
+!:      nop;nop;nop;nop;nop;nop;nop;nop;
+        nop;nop;nop;nop;nop;nop;nop;nop;
+        nop;nop;nop;
+
+        inx             // Increment buffer offset
         iny             // Increment raster line
+        lda buffer,x    // Load next color into acc
         jmp lineLoop
